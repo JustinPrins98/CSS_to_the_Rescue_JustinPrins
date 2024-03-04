@@ -23,28 +23,30 @@ nav img {
 
 /* MAIN */
 
+
+
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    /* Adjust the proportions as needed */
+    grid-template-columns: 1fr;
+    /* Single column for the first row */
+    gap: 1em;
     text-align: center;
 }
+
 
 section {
     background-color: #d13017;
     height: 10rem;
-    grid-column-start: 1;
-    grid-column-end: 4;
 }
+
 
 form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* Multiple columns for the second and third rows */
     gap: 1em;
-    width: fit-content;
-    padding: 3em;
-    /* Set the width to fit the content */
-    margin: auto;
-    /* Center the form horizontally */
 }
 
 
