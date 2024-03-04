@@ -1,0 +1,34 @@
+/* Algemene styling */
+body {
+    margin: 1em;
+}
+
+/* Costum Properties */
+:root {
+    --power-btn-color: #c3af6d;
+    --contorl-panel-color: #4f6065;
+    --test-btn-color: #d13017;
+}
+
+/* NAV */
+
+nav {
+    display: flex;
+}
+
+nav img {
+    width: 2em;
+    object-fit: contain;
+}
+
+/* MAIN */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+section {
+    background-color: #d13017;
+    height: 10rem;
+}
