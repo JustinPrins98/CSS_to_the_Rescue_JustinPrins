@@ -14,11 +14,18 @@ body {
 
 nav {
     display: flex;
+    justify-content: space-evenly;
 }
 
 nav img {
     width: 2em;
     object-fit: contain;
+    transition: 1s;
+}
+
+nav img:hover {
+    filter: blur(3px);
+
 }
 
 /* MAIN */
@@ -27,7 +34,7 @@ nav img {
 
 main {
     display: grid;
-    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-rows: 1fr 2fr;
     /* Adjust the proportions as needed */
     grid-template-columns: 1fr;
     /* Single column for the first row */
@@ -44,9 +51,8 @@ section {
 
 form {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    /* Multiple columns for the second and third rows */
-    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+    gap: 2em;
 }
 
 
