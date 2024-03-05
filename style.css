@@ -3,6 +3,8 @@ body {
     margin: 1em;
 }
 
+
+
 .russo-one-regular {
     font-family: "Russo One", sans-serif;
     font-weight: 400;
@@ -15,6 +17,7 @@ body {
     --power-btn-color: #c3af6d;
     --contorl-panel-color: #4f6065;
     --test-btn-color: #d13017;
+    --bevestiging-btn-color: #928483;
     --main-font-family: 'Russo One', sans-serif;
 }
 
@@ -66,30 +69,95 @@ form {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
     gap: 2em;
+    background-color: var(--contorl-panel-color);
+
+}
+
+fieldset {
+    border: none;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 
-form fieldset:nth-of-type(1) {
-    background-color: blue;
-    grid-column-start: 1;
+form fieldset p {
+    color: black;
+    font-family: var(--main-font-family);
+    padding: .5rem;
+    margin-top: 2rem;
+    background-color: rgb(188, 188, 188);
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+form fieldset img {
+    width: 2rem;
+    filter: invert(25%) sepia(51%) saturate(3000%) hue-rotate(354deg) brightness(85%) contrast(92%);
+    /* geëxpirimenteerd met filter */
 }
 
 form fieldset:nth-of-type(1) button {
     background-color: var(--power-btn-color);
-    padding: 5em;
-    box-shadow: 0px 10px 0px 3px gray;
-    border: transparent;
+    width: 100%;
+    height: 8rem;
+    border: none;
+    box-shadow: 0px 5px 0px 0px black, 0px 20px 0px 0px var(--bevestiging-btn-color);
     cursor: pointer;
 }
 
-form fieldset:nth-of-type(2) {
-    background-color: green;
-}
-
-form fieldset:nth-of-type(3) {
+form fieldset:nth-of-type(1) button:hover {
     background-color: orange;
+    box-shadow: 0px 0px 20px 5px orange;
+    cursor: pointer;
 }
 
-form fieldset:nth-of-type(4) {
-    background-color: purple;
+
+
+
+
+
+
+form fieldset:nth-of-type(2) button {
+    background-color: var(--power-btn-color);
+    width: 100%;
+    height: 8rem;
+    border: none;
+    box-shadow: 0px 5px 0px 0px black, 0px 20px 0px 0px gray;
+    cursor: pointer;
+}
+
+form fieldset:nth-of-type(2) button img {
+    transform: rotate(180deg);
+}
+
+form fieldset:nth-of-type(3) button {
+    background-color: var(--test-btn-color);
+    width: 100%;
+    height: 8rem;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 0px 0px 0px 3px black, 0px 7px 2px 0px black, 0px 10px 0px 0px black;
+    cursor: pointer;
+}
+
+
+
+form fieldset:nth-of-type(4) button {
+    background-color: var(--test-btn-color);
+    height: 8rem;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+/* Experimemteren met :before & :after */
+form fieldset:nth-of-type(4) button::before {
+    content: "";
+    background-color: black;
+    padding: 5em;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    translate: -3.8em -4.4em;
+    z-index: -1;
 }
