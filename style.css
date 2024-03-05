@@ -143,7 +143,7 @@ form fieldset:nth-of-type(3) button {
 
 
 form fieldset:nth-of-type(4) button {
-    background-color: var(--test-btn-color);
+    background-color: black;
     height: 8rem;
     border: none;
     border-radius: 100%;
@@ -153,11 +153,28 @@ form fieldset:nth-of-type(4) button {
 /* Experimemteren met :before & :after */
 form fieldset:nth-of-type(4) button::before {
     content: "";
-    background-color: black;
-    padding: 5em;
+    background-color: rgb(37, 37, 37);
+    padding: 3rem;
     border-radius: 100%;
     display: inline-block;
     position: absolute;
-    translate: -3.8em -4.4em;
+    translate: -2.4em -2.3em;
     z-index: -1;
+}
+
+form fieldset:nth-of-type(4) button::after {
+    content: "";
+    background-color: rgb(65, 65, 65);
+    padding: 4rem;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    translate: -6em -3.5em;
+    z-index: -2;
+}
+
+form fieldset:nth-of-type(4) button img {
+    filter: invert(70%) sepia(0%) saturate(0%) hue-rotate(331deg) brightness(103%) contrast(101%);
+    scale: .4;
+    translate: 0em -3.5em;
 }
