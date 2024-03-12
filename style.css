@@ -36,11 +36,11 @@ nav {
 nav img {
     width: 2em;
     object-fit: contain;
-    transition: 1s;
+    transition: 5s;
 }
 
 nav img:hover {
-    filter: blur(3px);
+    filter: blur(999px);
 
 }
 
@@ -60,8 +60,50 @@ main {
 
 
 section {
-    background-color: #d13017;
+    background-color: #282828;
     height: 10rem;
+    margin: auto 2em;
+}
+
+section h2 {
+    color: white;
+    font-family: var(--main-font-family);
+    font-weight: lighter;
+
+}
+
+section {
+    background-color: #282828;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+
+
+section>div {
+    border-radius: 10px;
+    height: 5em;
+    width: 50%;
+    gap: 2em;
+    display: flex;
+    margin: auto auto;
+    justify-content: center;
+}
+
+section>div div {
+    background-color: var(--bevestiging-btn-color);
+    box-shadow: 0px 3px 5px 0px black;
+    border-radius: 10px;
+}
+
+section div p {
+    background-color: rgb(0, 0, 0);
+    color: orange;
+    text-shadow: 0px 0px 8px orange;
+    font-size: 3em;
+    margin: auto auto;
+    transform: translateY(.23em);
 }
 
 
@@ -96,6 +138,8 @@ form fieldset img {
     /* geëxpirimenteerd met filter */
 }
 
+/* Power up button */
+
 form fieldset:nth-of-type(1) button {
     background-color: var(--power-btn-color);
     width: 100%;
@@ -112,11 +156,11 @@ form fieldset:nth-of-type(1) button:hover {
 
 form fieldset:nth-of-type(1) button:active {
     background-color: orange;
-    box-shadow: 0px 0px 10px 5px orange;
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, .2), 0px 0px 10px 5px orange;
     translate: 0em 1.3em;
 }
 
-
+/* Power down button */
 
 form fieldset:nth-of-type(2) button {
     background-color: var(--power-btn-color);
@@ -138,10 +182,11 @@ form fieldset:nth-of-type(2) button:hover {
 
 form fieldset:nth-of-type(2) button:active {
     background-color: orange;
-    box-shadow: 0px 0px 10px 5px orange;
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, .2), 0px 0px 10px 5px orange;
     translate: 0em 1.3em;
 }
 
+/* Big red button */
 
 form fieldset:nth-of-type(3) button {
     background-color: var(--test-btn-color);
@@ -151,43 +196,57 @@ form fieldset:nth-of-type(3) button {
     border: none;
     box-shadow: 0px 0px 0px 3px black, 0px 7px 2px 0px black, 0px 10px 0px 0px black;
     cursor: pointer;
+    transition: .1s;
 }
 
+form fieldset:nth-of-type(3) button:hover {
+    background-color: #962312;
+}
 
+form fieldset:nth-of-type(3) button:active {
+    background-color: color(display-p3 1 0 0);
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, .2), 0px 0px 10px 5px rgb(224, 0, 0);
+    translate: 0em .8em;
+}
+
+/* Noodknop */
 
 form fieldset:nth-of-type(4) button {
-    background-color: black;
-    height: 8rem;
+    background-color: var(--bevestiging-btn-color);
+    padding: 2rem;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1/1;
     border: none;
-    border-radius: 100%;
-    cursor: pointer;
+    box-shadow: 0px 2px 3px 0px black;
+    transition: .2s;
+    position: relative;
 }
+
+
+form fieldset:nth-of-type(4) button:hover {
+    box-shadow: inset 0 0 0 3px white;
+}
+
+form fieldset:nth-of-type(4) button:active {
+    transform: rotate(90deg);
+}
+
 
 /* Experimemteren met :before & :after */
 form fieldset:nth-of-type(4) button::before {
     content: "";
-    background-color: rgb(37, 37, 37);
-    padding: 3rem;
-    border-radius: 100%;
-    display: inline-block;
+    padding: 2em;
+    background-color: black;
     position: absolute;
-    translate: -2.4em -2.3em;
-    z-index: -1;
+    border-radius: 100%;
+    height: 6rem;
+    transform: translate(-.7rem, -3.5rem);
 }
 
-form fieldset:nth-of-type(4) button::after {
-    content: "";
-    background-color: rgb(65, 65, 65);
-    padding: 4rem;
-    border-radius: 100%;
-    display: inline-block;
-    position: absolute;
-    translate: -6em -3.5em;
-    z-index: -2;
-}
 
 form fieldset:nth-of-type(4) button img {
     filter: invert(70%) sepia(0%) saturate(0%) hue-rotate(331deg) brightness(103%) contrast(101%);
     scale: .4;
-    translate: 0em -3.5em;
+    translate: .1em -3.5em;
 }
