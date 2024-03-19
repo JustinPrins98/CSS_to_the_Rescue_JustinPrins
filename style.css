@@ -1,9 +1,15 @@
 /* Algemene styling */
 @layer base {
 
+
     body {
         background-color: hsl(135, 0%, 65%);
         margin: 0;
+        margin-top: 5em;
+
+        &::before {
+            content: "";
+        }
     }
 
     /* Costum Properties */
@@ -21,6 +27,8 @@
         font-size: 2em;
         text-transform: uppercase;
         position: relative;
+
+
     }
 
     h2 {
@@ -28,6 +36,19 @@
         color: color(display-p3 .665 .279 .255/1);
         text-shadow: 1px 1px 0 black, -1px -1px 0 black, 2px 2px 3px rgba(0, 0, 0, 0.2);
         margin-top: 0;
+        background-color: #000;
+        color: transparent;
+        text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.77);
+        background-clip: text;
+    }
+
+    footer {
+        background-color: #232a2c;
+        padding: 2em;
+    }
+
+    p {
+        text-align: center;
     }
 
 
@@ -37,8 +58,13 @@
 
     nav {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         gap: 1em;
+        width: 100%;
+        /* Ik zat hiermee te spelen omdat m'n nav niet tegen de bovenkant van de CSS aankwam, 
+        toen gebeurde dit en vond ik het er zo wel cool uitzien, ook al weet ik dat het ook ander kan. */
+        position: absolute;
+        top: 0;
     }
 
     nav img {
@@ -62,10 +88,13 @@
         place-items: center;
         text-align: center;
         background-color: rgb(128, 128, 128);
-        margin: 1em;
+        margin: auto auto;
+        margin-bottom: 1em;
         padding: 1em;
+        max-width: 30em;
         box-shadow: black 0px 2px 4px 0px;
     }
+
 
     section {
         display: flex;
@@ -137,8 +166,6 @@
 
         background-color: black;
         color: orange;
-
-
         animation: rollen var(--dur) infinite linear;
 
         animation-delay: calc(var(--dur) / -10 * var(--i));
@@ -216,8 +243,9 @@
         grid-template-columns: repeat(4, minmax(8em, 1fr));
         gap: 2em;
         background-color: var(--contorl-panel-color);
+        height: 100%;
         width: 100%;
-        container: paneeltafel / inline-size;
+        margin-top: 3em;
     }
 
     @media screen and (max-width: 735px) {
@@ -225,9 +253,14 @@
             grid-template-columns: repeat(2, minmax(8em, 1fr));
             justify-items: center;
         }
-
     }
 
+    @media screen and (max-width: 510px) {
+        form {
+            grid-template-columns: repeat(1, minmax(8em, 1fr));
+        }
+
+    }
 
 
     fieldset {
@@ -235,6 +268,9 @@
         margin-top: 1rem;
         position: relative;
         z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     form fieldset p {
@@ -431,13 +467,6 @@
         display: none;
     }
 
-    /* 
-ul[data-title="preserve-3D"] li {
-    /* 1. start animation */
-    /* animation: powerCounter 10s calc(10s/-12*var(--i)) infinite linear;
-} */
-
-    /* */
 
     @keyframes powerCounter {
         0% {
@@ -456,10 +485,55 @@ ul[data-title="preserve-3D"] li {
     html:has(form fieldset:nth-of-type(4) button:active) body>img {
         position: absolute;
         display: block;
+        inset: 0;
         width: 100%;
-        height: 100%;
         opacity: 20%;
         z-index: 1;
+    }
+
+    /* De animatie spiegeld, had niet genoeg tijd om dit nog aan te passen */
+    html:has(form fieldset:nth-of-type(2) button:active) li {
+        animation: rollen var(--dur) infinite linear reverse;
+        animation-delay: calc(var(--dur) / 10 * var(--i));
+        color: cyan;
+    }
+
+    html:has(form fieldset:nth-of-type(3) button:active) body::before {
+        content: "";
+        inset: 0;
+        background-image: none;
+        position: absolute;
+        z-index: 2;
+        animation: alarm 5s linear infinite;
+
+    }
+
+    html:has(form fieldset:nth-of-type(1) button:active) li {
+        background-color: black;
+        color: limegreen;
+        text-shadow: 0px 0px 3px lightgreen;
+    }
+
+    @keyframes alarm {
+        0% {
+            background-image: radial-gradient(transparent 0, red 90% 100%);
+        }
+
+        25% {
+            background-image: radial-gradient(transparent 0, red 50% 100%);
+        }
+
+        50% {
+            background-image: radial-gradient(transparent 0, red 90% 100%);
+        }
+
+        75% {
+            background-image: radial-gradient(transparent 0, red 50% 100%);
+        }
+
+        100% {
+            background-image: radial-gradient(transparent 0, transparent 90% 100%);
+        }
     }
 
 }
