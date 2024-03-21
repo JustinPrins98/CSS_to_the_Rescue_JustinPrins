@@ -1,7 +1,11 @@
 /* Algemene styling */
+
+/* Hier heb ik @layer toegepast om mijn CSS meer structuur te geven, 
+in de base layer staan alle basis elementen/ styling */
 @layer base {
 
-
+    /*Hier heb ik hsl gebruikt wat staat voor Hue, Satuartion en Lightness hierdoor kan je van een kleur gemakkelijk
+    veel verschillende kleurtinten maken. Ik heb het hier gebruikt om het eenmalig uit te testen. */
     body {
         background-color: hsl(135, 0%, 65%);
         margin: 0;
@@ -31,6 +35,8 @@
 
     }
 
+    /* Hier heb ik een ingegraveerd effect gecreërd op mijn H2. Dit heb ik gedaan doormiddel van text-shadows en 
+    een background clip*/
     h2 {
         font-family: var(--main-font-family);
         color: color(display-p3 .665 .279 .255/1);
@@ -54,6 +60,7 @@
 
 }
 
+/*De ;ayer met alle componenten */
 @layer components {
 
     nav {
@@ -62,11 +69,13 @@
         gap: 1em;
         width: 100%;
         /* Ik zat hiermee te spelen omdat m'n nav niet tegen de bovenkant van de CSS aankwam, 
-        toen gebeurde dit en vond ik het er zo wel cool uitzien, ook al weet ik dat het ook ander kan. */
+        toen gebeurde dit en vond ik het er zo wel cool uitzien, ook al weet ik dat het ook ander kan. 
+        Edit inmiddels is dit alweer veranderd*/
         position: absolute;
         top: 0;
     }
 
+    /*Leuk effectje waarbij het icoon verdwijnt door een filter: blur op de hover en een transition op het incoontje */
     nav img {
         width: 2em;
         object-fit: contain;
@@ -83,6 +92,7 @@
         justify-content: space-between;
     }
 
+    /* In deze main staat de grid/layout voor het ijzeren bordje dat is vastgezet met spijkers */
     main {
         display: grid;
         place-items: center;
@@ -95,7 +105,7 @@
         box-shadow: black 0px 2px 4px 0px;
     }
 
-
+    /* 3D animatie met behulp van Sanne */
     section {
         display: flex;
         gap: 1em;
@@ -190,7 +200,8 @@
 
 
 
-    /* Spijkers */
+    /* Spijkers gemaakt met behulp van ::before waardoor ik extra styling heb toegepast op de div. Ook heb ik de ::before genest
+    omdat ik dat voor mijzelf overzichtelijker vind*/
 
     main span div:nth-of-type(1) {
         background-color: var(--spijker-color);
@@ -237,7 +248,7 @@
         align-items: center;
     }
 
-
+    /*Het grid van mijn form waar al mijn buttons op staan, het grid past zich aan door media queries die op max-width hebben */
     form {
         display: grid;
         grid-template-columns: repeat(4, minmax(8em, 1fr));
@@ -283,13 +294,14 @@
         box-shadow: 0px 0px 5px 1px black;
     }
 
+    /* geëxpirimenteerd met filter om de excacte kleur te vinden heb ik een van de filter generators op codepen gebruikt.*/
     form fieldset img {
         width: 2rem;
         filter: invert(25%) sepia(51%) saturate(4000%) hue-rotate(354deg) brightness(85%) contrast(92%);
-        /* geëxpirimenteerd met filter */
     }
 
     /* Power up button */
+    /* Hover en Active state genest voor meer overzicht en met box shadow het object 3d te laten laten en laten gloeien*/
 
     form fieldset:nth-of-type(1) button {
         background-color: var(--power-btn-color);
@@ -313,7 +325,8 @@
 
     }
 
-    /* Power down button */
+    /* Power down button 
+    Hetzelfde als de vorige button alleen heb ik hierin de img genest die ik bij deze button 180 graden draai.*/
 
     form fieldset:nth-of-type(2) button {
         background-color: var(--power-btn-color);
@@ -340,7 +353,9 @@
         }
     }
 
-    /* Big red button */
+    /* Big red button 
+    Veel box shadows gebruikt voor een 3e feect en met display-p3 gebruikt voor een felle rode kleur op de active.
+    Ook hier heb ik weer genest zodat het voor mijzelf overzichtelijker is.*/
 
     form fieldset:nth-of-type(3) button {
         background-color: var(--test-btn-color);
@@ -364,7 +379,10 @@
         }
     }
 
-    /* Noodknop */
+    /* Noodknop 
+    aspect-ratio gebruikt voor een perfecte cirkel.
+    Weer genest voor mijn eigen overzicht 
+    position relative en absolute gebruikt voor het plaatsen van de ::before*/
 
     form fieldset:nth-of-type(4) button {
         background-color: var(--bevestiging-btn-color);
@@ -409,7 +427,8 @@
 
 
 
-
+/*In deze laag heb ik alle dingen geplaatst die niet op de voorgrond treden zoals, keyframes, has() 
+en elementen die ik op display none heb geplaatst. */
 @layer utilities {
     @keyframes rollen {
         0% {
@@ -482,6 +501,8 @@
         display: none;
     }
 
+    /*Bij button 4 wordt er een img(GIF) over de hele pagina getoond waneer de button active is. 
+    Inset 0 zodat het over de hele pagina valt en de z-index 1 zodat het voor alles staat. */
     html:has(form fieldset:nth-of-type(4) button:active) body>img {
         position: absolute;
         display: block;
@@ -498,6 +519,7 @@
         color: cyan;
     }
 
+    /* Alarm lichten animtie wanneer je op de rode knop klikt*/
     html:has(form fieldset:nth-of-type(3) button:active) body::before {
         content: "";
         inset: 0;
@@ -514,6 +536,7 @@
         text-shadow: 0px 0px 3px lightgreen;
     }
 
+    /* Alarm animatie met behulp van radial-gradients, vind het alleen jammer dat de animatie niet vloeiend is*/
     @keyframes alarm {
         0% {
             background-image: radial-gradient(transparent 0, red 90% 100%);
