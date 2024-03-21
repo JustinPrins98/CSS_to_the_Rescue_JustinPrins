@@ -3,5 +3,5 @@ Repository for the subject CSS to the Rescue
 
 
 Welcome to my repository for the course CSS to the Rescue.
-For this course, I've created a Chernobul control panel.
+For this course, I've created a Chernobyl control panel.
 My process report is in my wiki.
